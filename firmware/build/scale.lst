@@ -1,0 +1,362 @@
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccElKpLz.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"scale.cpp"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text._Z5scalefff9CurveType,"ax",%progbits
+  17              		.align	1
+  18              		.p2align 2,,3
+  19              		.global	_Z5scalefff9CurveType
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv5-d16
+  26              	_Z5scalefff9CurveType:
+  27              	.LVL0:
+  28              	.LFB3393:
+  29              		.file 1 "../Epiphyte/scale.cpp"
+   1:../Epiphyte/scale.cpp **** // Copyright 2021 Adam Fulford
+   2:../Epiphyte/scale.cpp **** // 
+   3:../Epiphyte/scale.cpp **** // Permission is hereby granted, free of charge, to any person obtaining a copy
+   4:../Epiphyte/scale.cpp **** // of this software and associated documentation files (the "Software"), to deal
+   5:../Epiphyte/scale.cpp **** // in the Software without restriction, including without limitation the rights
+   6:../Epiphyte/scale.cpp **** // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   7:../Epiphyte/scale.cpp **** // copies of the Software, and to permit persons to whom the Software is
+   8:../Epiphyte/scale.cpp **** // furnished to do so, subject to the following conditions:
+   9:../Epiphyte/scale.cpp **** // 
+  10:../Epiphyte/scale.cpp **** // The above copyright notice and this permission notice shall be included in
+  11:../Epiphyte/scale.cpp **** // all copies or substantial portions of the Software.
+  12:../Epiphyte/scale.cpp **** // 
+  13:../Epiphyte/scale.cpp **** // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  14:../Epiphyte/scale.cpp **** // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  15:../Epiphyte/scale.cpp **** // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  16:../Epiphyte/scale.cpp **** // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  17:../Epiphyte/scale.cpp **** // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  18:../Epiphyte/scale.cpp **** // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  19:../Epiphyte/scale.cpp **** // THE SOFTWARE.
+  20:../Epiphyte/scale.cpp **** // 
+  21:../Epiphyte/scale.cpp **** // See http://creativecommons.org/licenses/MIT/ for more information.
+  22:../Epiphyte/scale.cpp **** 
+  23:../Epiphyte/scale.cpp **** #include "scale.h"
+  24:../Epiphyte/scale.cpp **** 
+  25:../Epiphyte/scale.cpp **** //maps and scales float (0.0 to 1.0) to float (outputMin to outputMax)
+  26:../Epiphyte/scale.cpp **** float scale(float input, float outputMin, float outputMax, CurveType curve)
+  27:../Epiphyte/scale.cpp **** {
+  30              		.loc 1 27 1 view -0
+  31              		.cfi_startproc
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccElKpLz.s 			page 2
+
+
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  28:../Epiphyte/scale.cpp ****     float val{};
+  34              		.loc 1 28 5 view .LVU1
+  29:../Epiphyte/scale.cpp ****     float lmin{logf(outputMin < 0.0000001f ? 0.0000001f : outputMin)};
+  35              		.loc 1 29 5 view .LVU2
+  36              		.loc 1 29 20 is_stmt 0 view .LVU3
+  37 0000 DFED297A 		vldr.32	s15, .L13
+  38 0004 F4EEE70A 		vcmpe.f32	s1, s15
+  27:../Epiphyte/scale.cpp ****     float val{};
+  39              		.loc 1 27 1 view .LVU4
+  40 0008 10B5     		push	{r4, lr}
+  41              		.cfi_def_cfa_offset 8
+  42              		.cfi_offset 4, -8
+  43              		.cfi_offset 14, -4
+  44              		.loc 1 29 20 view .LVU5
+  45 000a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+  27:../Epiphyte/scale.cpp ****     float val{};
+  46              		.loc 1 27 1 view .LVU6
+  47 000e 0446     		mov	r4, r0
+  48 0010 2DED048B 		vpush.64	{d8, d9}
+  49              		.cfi_def_cfa_offset 24
+  50              		.cfi_offset 80, -24
+  51              		.cfi_offset 81, -20
+  52              		.cfi_offset 82, -16
+  53              		.cfi_offset 83, -12
+  27:../Epiphyte/scale.cpp ****     float val{};
+  54              		.loc 1 27 1 view .LVU7
+  55 0014 F0EE418A 		vmov.f32	s17, s2
+  56 0018 B0EE409A 		vmov.f32	s18, s0
+  57              		.loc 1 29 20 view .LVU8
+  58 001c 54BF     		ite	pl
+  59 001e B0EE600A 		vmovpl.f32	s0, s1
+  60 0022 B0EE670A 		vmovmi.f32	s0, s15
+  61              	.LVL1:
+  27:../Epiphyte/scale.cpp ****     float val{};
+  62              		.loc 1 27 1 view .LVU9
+  63 0026 B0EE608A 		vmov.f32	s16, s1
+  64              		.loc 1 29 20 view .LVU10
+  65 002a FFF7FEFF 		bl	logf
+  66              	.LVL2:
+  67              		.loc 1 29 20 view .LVU11
+  68 002e F0EE409A 		vmov.f32	s19, s0
+  30:../Epiphyte/scale.cpp ****     float lmax{logf(outputMax)};
+  69              		.loc 1 30 20 view .LVU12
+  70 0032 B0EE680A 		vmov.f32	s0, s17
+  71              	.LVL3:
+  72              		.loc 1 30 5 is_stmt 1 view .LVU13
+  73              		.loc 1 30 20 is_stmt 0 view .LVU14
+  74 0036 FFF7FEFF 		bl	logf
+  75              	.LVL4:
+  31:../Epiphyte/scale.cpp **** 
+  32:../Epiphyte/scale.cpp ****     switch(curve)
+  76              		.loc 1 32 5 is_stmt 1 view .LVU15
+  77 003a 032C     		cmp	r4, #3
+  78 003c 30D8     		bhi	.L10
+  79 003e DFE804F0 		tbb	[pc, r4]
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccElKpLz.s 			page 3
+
+
+  80              	.L5:
+  81 0042 26       		.byte	(.L8-.L5)/2
+  82 0043 1B       		.byte	(.L7-.L5)/2
+  83 0044 0F       		.byte	(.L6-.L5)/2
+  84 0045 02       		.byte	(.L4-.L5)/2
+  85              		.p2align 1
+  86              	.L4:
+  33:../Epiphyte/scale.cpp ****     {
+  34:../Epiphyte/scale.cpp ****         case LINEAR:
+  35:../Epiphyte/scale.cpp ****             val = (input * (outputMax - outputMin)) + outputMin;
+  36:../Epiphyte/scale.cpp ****         break;
+  37:../Epiphyte/scale.cpp **** 
+  38:../Epiphyte/scale.cpp ****         case EXPONENTIAL:
+  39:../Epiphyte/scale.cpp ****             val = ((input * input ) * (outputMax - outputMin)) + outputMin;
+  40:../Epiphyte/scale.cpp ****         break;
+  41:../Epiphyte/scale.cpp **** 
+  42:../Epiphyte/scale.cpp ****         case LOGARITHMIC:
+  43:../Epiphyte/scale.cpp ****             val = expf((input * (lmax - lmin)) + lmin);
+  44:../Epiphyte/scale.cpp ****         break;
+  45:../Epiphyte/scale.cpp ****         
+  46:../Epiphyte/scale.cpp ****         case CUBE:
+  87              		.loc 1 46 9 view .LVU16
+  47:../Epiphyte/scale.cpp ****             val = ((input * (input * input)) * (outputMax - outputMin)) + outputMin;
+  88              		.loc 1 47 13 view .LVU17
+  89              		.loc 1 47 36 is_stmt 0 view .LVU18
+  90 0046 29EE090A 		vmul.f32	s0, s18, s18
+  91              	.LVL5:
+  92              		.loc 1 47 59 view .LVU19
+  93 004a 78EEC88A 		vsub.f32	s17, s17, s16
+  94              	.LVL6:
+  95              		.loc 1 47 27 view .LVU20
+  96 004e 20EE099A 		vmul.f32	s18, s0, s18
+  97              	.LVL7:
+  98              		.loc 1 47 17 view .LVU21
+  99 0052 B0EE480A 		vmov.f32	s0, s16
+ 100 0056 A9EE280A 		vfma.f32	s0, s18, s17
+ 101              	.LVL8:
+  48:../Epiphyte/scale.cpp ****         break;
+ 102              		.loc 1 48 9 is_stmt 1 view .LVU22
+ 103              	.L1:
+  49:../Epiphyte/scale.cpp ****         
+  50:../Epiphyte/scale.cpp ****         default: 
+  51:../Epiphyte/scale.cpp ****         break;
+  52:../Epiphyte/scale.cpp ****     }
+  53:../Epiphyte/scale.cpp ****     return val;
+  54:../Epiphyte/scale.cpp **** }
+ 104              		.loc 1 54 1 is_stmt 0 view .LVU23
+ 105 005a BDEC048B 		vldm	sp!, {d8-d9}
+ 106              		.cfi_remember_state
+ 107              		.cfi_restore 82
+ 108              		.cfi_restore 83
+ 109              		.cfi_restore 80
+ 110              		.cfi_restore 81
+ 111              		.cfi_def_cfa_offset 8
+ 112              	.LVL9:
+ 113              		.loc 1 54 1 view .LVU24
+ 114 005e 10BD     		pop	{r4, pc}
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccElKpLz.s 			page 4
+
+
+ 115              	.LVL10:
+ 116              	.L6:
+ 117              		.cfi_restore_state
+  42:../Epiphyte/scale.cpp ****             val = expf((input * (lmax - lmin)) + lmin);
+ 118              		.loc 1 42 9 is_stmt 1 view .LVU25
+  43:../Epiphyte/scale.cpp ****         break;
+ 119              		.loc 1 43 13 view .LVU26
+  43:../Epiphyte/scale.cpp ****         break;
+ 120              		.loc 1 43 39 is_stmt 0 view .LVU27
+ 121 0060 70EE697A 		vsub.f32	s15, s0, s19
+  43:../Epiphyte/scale.cpp ****         break;
+ 122              		.loc 1 43 23 view .LVU28
+ 123 0064 B0EE690A 		vmov.f32	s0, s19
+ 124              	.LVL11:
+  43:../Epiphyte/scale.cpp ****         break;
+ 125              		.loc 1 43 23 view .LVU29
+ 126 0068 A7EE890A 		vfma.f32	s0, s15, s18
+ 127              		.loc 1 54 1 view .LVU30
+ 128 006c BDEC048B 		vldm	sp!, {d8-d9}
+ 129              		.cfi_remember_state
+ 130              		.cfi_restore 82
+ 131              		.cfi_restore 83
+ 132              		.cfi_restore 80
+ 133              		.cfi_restore 81
+ 134              		.cfi_def_cfa_offset 8
+ 135              	.LVL12:
+ 136              		.loc 1 54 1 view .LVU31
+ 137 0070 BDE81040 		pop	{r4, lr}
+ 138              		.cfi_restore 14
+ 139              		.cfi_restore 4
+ 140              		.cfi_def_cfa_offset 0
+  43:../Epiphyte/scale.cpp ****         break;
+ 141              		.loc 1 43 23 view .LVU32
+ 142 0074 FFF7FEBF 		b	expf
+ 143              	.LVL13:
+ 144              	.L7:
+ 145              		.cfi_restore_state
+  38:../Epiphyte/scale.cpp ****             val = ((input * input ) * (outputMax - outputMin)) + outputMin;
+ 146              		.loc 1 38 9 is_stmt 1 view .LVU33
+  39:../Epiphyte/scale.cpp ****         break;
+ 147              		.loc 1 39 13 view .LVU34
+  39:../Epiphyte/scale.cpp ****         break;
+ 148              		.loc 1 39 27 is_stmt 0 view .LVU35
+ 149 0078 29EE099A 		vmul.f32	s18, s18, s18
+ 150              	.LVL14:
+  39:../Epiphyte/scale.cpp ****         break;
+ 151              		.loc 1 39 50 view .LVU36
+ 152 007c 78EEC88A 		vsub.f32	s17, s17, s16
+ 153              	.LVL15:
+  39:../Epiphyte/scale.cpp ****         break;
+ 154              		.loc 1 39 17 view .LVU37
+ 155 0080 B0EE480A 		vmov.f32	s0, s16
+ 156              	.LVL16:
+  39:../Epiphyte/scale.cpp ****         break;
+ 157              		.loc 1 39 17 view .LVU38
+ 158 0084 A9EE280A 		vfma.f32	s0, s18, s17
+ 159              	.LVL17:
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccElKpLz.s 			page 5
+
+
+  40:../Epiphyte/scale.cpp **** 
+ 160              		.loc 1 40 9 is_stmt 1 view .LVU39
+ 161              		.loc 1 54 1 is_stmt 0 view .LVU40
+ 162 0088 BDEC048B 		vldm	sp!, {d8-d9}
+ 163              		.cfi_remember_state
+ 164              		.cfi_restore 82
+ 165              		.cfi_restore 83
+ 166              		.cfi_restore 80
+ 167              		.cfi_restore 81
+ 168              		.cfi_def_cfa_offset 8
+ 169              	.LVL18:
+ 170              		.loc 1 54 1 view .LVU41
+ 171 008c 10BD     		pop	{r4, pc}
+ 172              	.LVL19:
+ 173              	.L8:
+ 174              		.cfi_restore_state
+  34:../Epiphyte/scale.cpp ****             val = (input * (outputMax - outputMin)) + outputMin;
+ 175              		.loc 1 34 9 is_stmt 1 view .LVU42
+  35:../Epiphyte/scale.cpp ****         break;
+ 176              		.loc 1 35 13 view .LVU43
+  35:../Epiphyte/scale.cpp ****         break;
+ 177              		.loc 1 35 39 is_stmt 0 view .LVU44
+ 178 008e 78EEC88A 		vsub.f32	s17, s17, s16
+ 179              	.LVL20:
+  35:../Epiphyte/scale.cpp ****         break;
+ 180              		.loc 1 35 17 view .LVU45
+ 181 0092 B0EE480A 		vmov.f32	s0, s16
+ 182              	.LVL21:
+  35:../Epiphyte/scale.cpp ****         break;
+ 183              		.loc 1 35 17 view .LVU46
+ 184 0096 A8EE890A 		vfma.f32	s0, s17, s18
+ 185              	.LVL22:
+  36:../Epiphyte/scale.cpp **** 
+ 186              		.loc 1 36 9 is_stmt 1 view .LVU47
+ 187              		.loc 1 54 1 is_stmt 0 view .LVU48
+ 188 009a BDEC048B 		vldm	sp!, {d8-d9}
+ 189              		.cfi_remember_state
+ 190              		.cfi_restore 82
+ 191              		.cfi_restore 83
+ 192              		.cfi_restore 80
+ 193              		.cfi_restore 81
+ 194              		.cfi_def_cfa_offset 8
+ 195              	.LVL23:
+ 196              		.loc 1 54 1 view .LVU49
+ 197 009e 10BD     		pop	{r4, pc}
+ 198              	.LVL24:
+ 199              	.L10:
+ 200              		.cfi_restore_state
+  30:../Epiphyte/scale.cpp **** 
+ 201              		.loc 1 30 20 view .LVU50
+ 202 00a0 9FED020A 		vldr.32	s0, .L13+4
+ 203              	.LVL25:
+  53:../Epiphyte/scale.cpp **** }
+ 204              		.loc 1 53 5 is_stmt 1 view .LVU51
+  53:../Epiphyte/scale.cpp **** }
+ 205              		.loc 1 53 12 is_stmt 0 view .LVU52
+ 206 00a4 D9E7     		b	.L1
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccElKpLz.s 			page 6
+
+
+ 207              	.L14:
+ 208 00a6 00BF     		.align	2
+ 209              	.L13:
+ 210 00a8 95BFD633 		.word	869711765
+ 211 00ac 00000000 		.word	0
+ 212              		.cfi_endproc
+ 213              	.LFE3393:
+ 215              		.text
+ 216              	.Letext0:
+ 217              		.file 2 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 218              		.file 3 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 219              		.file 4 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 220              		.file 5 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 221              		.file 6 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 222              		.file 7 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 223              		.file 8 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 224              		.file 9 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 225              		.file 10 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 226              		.file 11 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 227              		.file 12 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 228              		.file 13 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 229              		.file 14 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 230              		.file 15 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 231              		.file 16 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 232              		.file 17 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 233              		.file 18 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 234              		.file 19 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 235              		.file 20 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 236              		.file 21 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 237              		.file 22 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 238              		.file 23 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 239              		.file 24 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 240              		.file 25 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 241              		.file 26 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 242              		.file 27 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 243              		.file 28 "../DaisySP/Source/Control/adenv.h"
+ 244              		.file 29 "../DaisySP/Source/Utility/dsp.h"
+ 245              		.file 30 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 246              		.file 31 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 247              		.file 32 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 248              		.file 33 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 249              		.file 34 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 250              		.file 35 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 251              		.file 36 "<built-in>"
+ 252              		.file 37 "../Epiphyte/scale.h"
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccElKpLz.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 scale.cpp
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccElKpLz.s:17     .text._Z5scalefff9CurveType:0000000000000000 $t
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccElKpLz.s:26     .text._Z5scalefff9CurveType:0000000000000000 _Z5scalefff9CurveType
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccElKpLz.s:81     .text._Z5scalefff9CurveType:0000000000000042 $d
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccElKpLz.s:85     .text._Z5scalefff9CurveType:0000000000000046 $t
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccElKpLz.s:210    .text._Z5scalefff9CurveType:00000000000000a8 $d
+
+UNDEFINED SYMBOLS
+logf
+expf

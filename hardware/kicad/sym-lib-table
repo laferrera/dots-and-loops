@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "dots-test-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/dots-test-eagle-import.kicad_sym")(options "")(descr ""))
+)

@@ -1,0 +1,716 @@
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"slewLimiter.cpp"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text._ZN7daisysp11SlewLimiter4InitEff,"ax",%progbits
+  17              		.align	1
+  18              		.p2align 2,,3
+  19              		.global	_ZN7daisysp11SlewLimiter4InitEff
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv5-d16
+  26              	_ZN7daisysp11SlewLimiter4InitEff:
+  27              	.LVL0:
+  28              	.LFB554:
+  29              		.file 1 "../Epiphyte/slewLimiter.cpp"
+   1:../Epiphyte/slewLimiter.cpp **** #include <math.h>
+   2:../Epiphyte/slewLimiter.cpp **** #include <stdlib.h>
+   3:../Epiphyte/slewLimiter.cpp **** #define ROOT2 (1.4142135623730950488)
+   4:../Epiphyte/slewLimiter.cpp **** 
+   5:../Epiphyte/slewLimiter.cpp **** #ifndef M_PI
+   6:../Epiphyte/slewLimiter.cpp **** #define M_PI 3.14159265358979323846
+   7:../Epiphyte/slewLimiter.cpp **** #endif
+   8:../Epiphyte/slewLimiter.cpp **** 
+   9:../Epiphyte/slewLimiter.cpp **** #include "slewLimiter.h"
+  10:../Epiphyte/slewLimiter.cpp **** 
+  11:../Epiphyte/slewLimiter.cpp **** using namespace daisysp;
+  12:../Epiphyte/slewLimiter.cpp **** 
+  13:../Epiphyte/slewLimiter.cpp **** void SlewLimiter::Init(float sample_rate, float htime)
+  14:../Epiphyte/slewLimiter.cpp **** {
+  30              		.loc 1 14 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  15:../Epiphyte/slewLimiter.cpp ****     yt1_ = 0;
+  35              		.loc 1 15 5 view .LVU1
+  16:../Epiphyte/slewLimiter.cpp ****     prvhtim_ = -100.0;
+  17:../Epiphyte/slewLimiter.cpp ****     htime_ = htime;
+  18:../Epiphyte/slewLimiter.cpp **** 
+  19:../Epiphyte/slewLimiter.cpp ****     sample_rate_ = sample_rate;
+  20:../Epiphyte/slewLimiter.cpp ****     onedsr_ = 1.0 / sample_rate_;
+  36              		.loc 1 20 19 is_stmt 0 view .LVU2
+  37 0000 B7EE007A 		vmov.f32	s14, #1.0e+0
+  15:../Epiphyte/slewLimiter.cpp ****     yt1_ = 0;
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s 			page 2
+
+
+  38              		.loc 1 15 10 view .LVU3
+  39 0004 0022     		movs	r2, #0
+  16:../Epiphyte/slewLimiter.cpp ****     prvhtim_ = -100.0;
+  40              		.loc 1 16 14 view .LVU4
+  41 0006 064B     		ldr	r3, .L3
+  15:../Epiphyte/slewLimiter.cpp ****     yt1_ = 0;
+  42              		.loc 1 15 10 view .LVU5
+  43 0008 C260     		str	r2, [r0, #12]	@ float
+  16:../Epiphyte/slewLimiter.cpp ****     prvhtim_ = -100.0;
+  44              		.loc 1 16 5 is_stmt 1 view .LVU6
+  45              		.loc 1 20 19 is_stmt 0 view .LVU7
+  46 000a C7EE007A 		vdiv.f32	s15, s14, s0
+  16:../Epiphyte/slewLimiter.cpp ****     prvhtim_ = -100.0;
+  47              		.loc 1 16 14 view .LVU8
+  48 000e 0361     		str	r3, [r0, #16]	@ float
+  17:../Epiphyte/slewLimiter.cpp **** 
+  49              		.loc 1 17 5 is_stmt 1 view .LVU9
+  17:../Epiphyte/slewLimiter.cpp **** 
+  50              		.loc 1 17 12 is_stmt 0 view .LVU10
+  51 0010 C0ED000A 		vstr.32	s1, [r0]
+  19:../Epiphyte/slewLimiter.cpp ****     onedsr_ = 1.0 / sample_rate_;
+  52              		.loc 1 19 5 is_stmt 1 view .LVU11
+  19:../Epiphyte/slewLimiter.cpp ****     onedsr_ = 1.0 / sample_rate_;
+  53              		.loc 1 19 18 is_stmt 0 view .LVU12
+  54 0014 80ED050A 		vstr.32	s0, [r0, #20]
+  55              		.loc 1 20 5 is_stmt 1 view .LVU13
+  56              		.loc 1 20 13 is_stmt 0 view .LVU14
+  57 0018 C0ED067A 		vstr.32	s15, [r0, #24]
+  21:../Epiphyte/slewLimiter.cpp **** }
+  58              		.loc 1 21 1 view .LVU15
+  59 001c 7047     		bx	lr
+  60              	.L4:
+  61 001e 00BF     		.align	2
+  62              	.L3:
+  63 0020 0000C8C2 		.word	-1027080192
+  64              		.cfi_endproc
+  65              	.LFE554:
+  67              		.section	.text._ZN7daisysp11SlewLimiter7ProcessEf,"ax",%progbits
+  68              		.align	1
+  69              		.p2align 2,,3
+  70              		.global	_ZN7daisysp11SlewLimiter7ProcessEf
+  71              		.syntax unified
+  72              		.thumb
+  73              		.thumb_func
+  74              		.fpu fpv5-d16
+  76              	_ZN7daisysp11SlewLimiter7ProcessEf:
+  77              	.LVL1:
+  78              	.LFB555:
+  22:../Epiphyte/slewLimiter.cpp **** 
+  23:../Epiphyte/slewLimiter.cpp **** float SlewLimiter::Process(float in)
+  24:../Epiphyte/slewLimiter.cpp **** {
+  79              		.loc 1 24 1 is_stmt 1 view -0
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 0
+  82              		@ frame_needed = 0, uses_anonymous_args = 0
+  25:../Epiphyte/slewLimiter.cpp ****     if (prvhtim_ != htime_)
+  83              		.loc 1 25 5 view .LVU17
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s 			page 3
+
+
+  84              		.loc 1 25 21 is_stmt 0 view .LVU18
+  85 0000 D0ED007A 		vldr.32	s15, [r0]
+  86              		.loc 1 25 5 view .LVU19
+  87 0004 90ED047A 		vldr.32	s14, [r0, #16]
+  88 0008 B4EE677A 		vcmp.f32	s14, s15
+  24:../Epiphyte/slewLimiter.cpp ****     if (prvhtim_ != htime_)
+  89              		.loc 1 24 1 view .LVU20
+  90 000c 10B5     		push	{r4, lr}
+  91              		.cfi_def_cfa_offset 8
+  92              		.cfi_offset 4, -8
+  93              		.cfi_offset 14, -4
+  94              		.loc 1 25 5 view .LVU21
+  95 000e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+  24:../Epiphyte/slewLimiter.cpp ****     if (prvhtim_ != htime_)
+  96              		.loc 1 24 1 view .LVU22
+  97 0012 0446     		mov	r4, r0
+  98 0014 2DED028B 		vpush.64	{d8}
+  99              		.cfi_def_cfa_offset 16
+ 100              		.cfi_offset 80, -16
+ 101              		.cfi_offset 81, -12
+  24:../Epiphyte/slewLimiter.cpp ****     if (prvhtim_ != htime_)
+ 102              		.loc 1 24 1 view .LVU23
+ 103 0018 B0EE408A 		vmov.f32	s16, s0
+ 104              		.loc 1 25 5 view .LVU24
+ 105 001c 10D1     		bne	.L6
+  26:../Epiphyte/slewLimiter.cpp ****     {
+  27:../Epiphyte/slewLimiter.cpp ****         c2_ = pow(0.5, onedsr_ / htime_);
+  28:../Epiphyte/slewLimiter.cpp ****         c1_ = 1.0 - c2_;
+  29:../Epiphyte/slewLimiter.cpp ****         prvhtim_ = htime_;
+  30:../Epiphyte/slewLimiter.cpp ****     }
+  31:../Epiphyte/slewLimiter.cpp **** 
+  32:../Epiphyte/slewLimiter.cpp ****     return yt1_ = c1_ * in + c2_ * yt1_;
+ 106              		.loc 1 32 19 view .LVU25
+ 107 001e 90ED017A 		vldr.32	s14, [r0, #4]
+ 108              		.loc 1 32 30 view .LVU26
+ 109 0022 D0ED027A 		vldr.32	s15, [r0, #8]
+ 110              	.LVL2:
+ 111              	.L7:
+ 112              		.loc 1 32 5 is_stmt 1 view .LVU27
+ 113              		.loc 1 32 34 is_stmt 0 view .LVU28
+ 114 0026 94ED030A 		vldr.32	s0, [r4, #12]
+ 115 002a 67EE807A 		vmul.f32	s15, s15, s0
+ 116              		.loc 1 32 28 view .LVU29
+ 117 002e E8EE077A 		vfma.f32	s15, s16, s14
+  33:../Epiphyte/slewLimiter.cpp **** }
+ 118              		.loc 1 33 1 view .LVU30
+ 119 0032 BDEC028B 		vldm	sp!, {d8}
+ 120              		.cfi_remember_state
+ 121              		.cfi_restore 80
+ 122              		.cfi_restore 81
+ 123              		.cfi_def_cfa_offset 8
+ 124              	.LVL3:
+  32:../Epiphyte/slewLimiter.cpp **** }
+ 125              		.loc 1 32 28 view .LVU31
+ 126 0036 B0EE670A 		vmov.f32	s0, s15
+  32:../Epiphyte/slewLimiter.cpp **** }
+ 127              		.loc 1 32 17 view .LVU32
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s 			page 4
+
+
+ 128 003a C4ED037A 		vstr.32	s15, [r4, #12]
+ 129              		.loc 1 33 1 view .LVU33
+ 130 003e 10BD     		pop	{r4, pc}
+ 131              	.LVL4:
+ 132              	.L6:
+ 133              		.cfi_restore_state
+  27:../Epiphyte/slewLimiter.cpp ****         c1_ = 1.0 - c2_;
+ 134              		.loc 1 27 9 is_stmt 1 view .LVU34
+ 135              	.LBB4:
+ 136              	.LBI4:
+ 137              		.file 2 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+   1:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // -*- C++ -*- C forwarding header.
+   2:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+   3:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // Copyright (C) 1997-2020 Free Software Foundation, Inc.
+   4:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** //
+   5:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // software; you can redistribute it and/or modify it under the
+   7:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // terms of the GNU General Public License as published by the
+   8:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // Free Software Foundation; either version 3, or (at your option)
+   9:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // any later version.
+  10:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  11:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // This library is distributed in the hope that it will be useful,
+  12:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // GNU General Public License for more details.
+  15:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  16:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // Under Section 7 of GPL version 3, you are granted additional
+  17:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // permissions described in the GCC Runtime Library Exception, version
+  18:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // 3.1, as published by the Free Software Foundation.
+  19:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  20:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // You should have received a copy of the GNU General Public License and
+  21:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // <http://www.gnu.org/licenses/>.
+  24:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  25:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** /** @file include/cmath
+  26:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  *  This is a Standard C++ Library file.  You should @c \#include this file
+  27:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  *  in your programs, rather than any of the @a *.h implementation files.
+  28:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  *
+  29:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  *  This is the C++ version of the Standard C Library header @c math.h,
+  30:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  *  and its contents are (mostly) the same as that header, but are all
+  31:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  *  contained in the namespace @c std (except for names which are defined
+  32:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  *  as macros in C).
+  33:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  */
+  34:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  35:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** //
+  36:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // ISO C++ 14882: 26.5  C library
+  37:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** //
+  38:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  39:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #pragma GCC system_header
+  40:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  41:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #include <bits/c++config.h>
+  42:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #include <bits/cpp_type_traits.h>
+  43:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #include <ext/type_traits.h>
+  44:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #define _GLIBCXX_INCLUDE_NEXT_C_HEADERS
+  45:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #include_next <math.h>
+  46:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s 			page 5
+
+
+  47:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #include <bits/std_abs.h>
+  48:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  49:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef _GLIBCXX_CMATH
+  50:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #define _GLIBCXX_CMATH 1
+  51:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  52:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // Get rid of those macros defined in <math.h> in lieu of real functions.
+  53:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef div
+  54:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef acos
+  55:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef asin
+  56:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef atan
+  57:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef atan2
+  58:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef ceil
+  59:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef cos
+  60:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef cosh
+  61:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef exp
+  62:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef fabs
+  63:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef floor
+  64:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef fmod
+  65:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef frexp
+  66:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef ldexp
+  67:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef log
+  68:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef log10
+  69:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef modf
+  70:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef pow
+  71:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef sin
+  72:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef sinh
+  73:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef sqrt
+  74:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef tan
+  75:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef tanh
+  76:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  77:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** extern "C++"
+  78:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** {
+  79:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** namespace std _GLIBCXX_VISIBILITY(default)
+  80:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** {
+  81:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
+  82:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  83:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::acos;
+  84:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  85:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+  86:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+  87:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   acos(float __x)
+  88:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_acosf(__x); }
+  89:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  90:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+  91:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   acos(long double __x)
+  92:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_acosl(__x); }
+  93:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+  94:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  95:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+  96:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+  97:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+  98:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+  99:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     acos(_Tp __x)
+ 100:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_acos(__x); }
+ 101:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 102:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::asin;
+ 103:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s 			page 6
+
+
+ 104:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 105:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 106:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   asin(float __x)
+ 107:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_asinf(__x); }
+ 108:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 109:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 110:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   asin(long double __x)
+ 111:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_asinl(__x); }
+ 112:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 113:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 114:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 115:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 116:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 117:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 118:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     asin(_Tp __x)
+ 119:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_asin(__x); }
+ 120:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 121:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::atan;
+ 122:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 123:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 124:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 125:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   atan(float __x)
+ 126:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_atanf(__x); }
+ 127:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 128:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 129:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   atan(long double __x)
+ 130:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_atanl(__x); }
+ 131:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 132:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 133:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 134:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 135:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 136:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 137:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     atan(_Tp __x)
+ 138:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_atan(__x); }
+ 139:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 140:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::atan2;
+ 141:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 142:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 143:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 144:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   atan2(float __y, float __x)
+ 145:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_atan2f(__y, __x); }
+ 146:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 147:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 148:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   atan2(long double __y, long double __x)
+ 149:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_atan2l(__y, __x); }
+ 150:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 151:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 152:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp, typename _Up>
+ 153:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 154:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+ 155:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     atan2(_Tp __y, _Up __x)
+ 156:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     {
+ 157:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+ 158:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****       return atan2(__type(__y), __type(__x));
+ 159:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     }
+ 160:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s 			page 7
+
+
+ 161:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::ceil;
+ 162:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 163:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 164:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 165:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   ceil(float __x)
+ 166:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_ceilf(__x); }
+ 167:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 168:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 169:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   ceil(long double __x)
+ 170:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_ceill(__x); }
+ 171:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 172:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 173:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 174:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 175:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 176:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 177:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     ceil(_Tp __x)
+ 178:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_ceil(__x); }
+ 179:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 180:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::cos;
+ 181:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 182:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 183:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 184:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   cos(float __x)
+ 185:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_cosf(__x); }
+ 186:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 187:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 188:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   cos(long double __x)
+ 189:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_cosl(__x); }
+ 190:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 191:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 192:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 193:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 194:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 195:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 196:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     cos(_Tp __x)
+ 197:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_cos(__x); }
+ 198:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 199:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::cosh;
+ 200:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 201:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 202:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 203:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   cosh(float __x)
+ 204:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_coshf(__x); }
+ 205:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 206:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 207:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   cosh(long double __x)
+ 208:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_coshl(__x); }
+ 209:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 210:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 211:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 212:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 213:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 214:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 215:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     cosh(_Tp __x)
+ 216:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_cosh(__x); }
+ 217:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s 			page 8
+
+
+ 218:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::exp;
+ 219:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 220:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 221:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 222:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   exp(float __x)
+ 223:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_expf(__x); }
+ 224:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 225:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 226:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   exp(long double __x)
+ 227:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_expl(__x); }
+ 228:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 229:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 230:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 231:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 232:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 233:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 234:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     exp(_Tp __x)
+ 235:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_exp(__x); }
+ 236:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 237:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::fabs;
+ 238:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 239:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 240:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 241:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   fabs(float __x)
+ 242:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_fabsf(__x); }
+ 243:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 244:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 245:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   fabs(long double __x)
+ 246:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_fabsl(__x); }
+ 247:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 248:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 249:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 250:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 251:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 252:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 253:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     fabs(_Tp __x)
+ 254:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_fabs(__x); }
+ 255:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 256:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::floor;
+ 257:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 258:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 259:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 260:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   floor(float __x)
+ 261:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_floorf(__x); }
+ 262:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 263:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 264:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   floor(long double __x)
+ 265:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_floorl(__x); }
+ 266:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 267:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 268:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 269:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 270:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 271:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 272:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     floor(_Tp __x)
+ 273:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_floor(__x); }
+ 274:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s 			page 9
+
+
+ 275:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::fmod;
+ 276:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 277:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 278:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 279:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   fmod(float __x, float __y)
+ 280:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_fmodf(__x, __y); }
+ 281:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 282:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 283:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   fmod(long double __x, long double __y)
+ 284:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_fmodl(__x, __y); }
+ 285:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 286:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 287:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp, typename _Up>
+ 288:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 289:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+ 290:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     fmod(_Tp __x, _Up __y)
+ 291:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     {
+ 292:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+ 293:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****       return fmod(__type(__x), __type(__y));
+ 294:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     }
+ 295:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 296:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::frexp;
+ 297:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 298:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 299:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline float
+ 300:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   frexp(float __x, int* __exp)
+ 301:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_frexpf(__x, __exp); }
+ 302:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 303:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline long double
+ 304:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   frexp(long double __x, int* __exp)
+ 305:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_frexpl(__x, __exp); }
+ 306:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 307:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 308:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 309:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 310:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 311:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 312:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     frexp(_Tp __x, int* __exp)
+ 313:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_frexp(__x, __exp); }
+ 314:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 315:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::ldexp;
+ 316:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 317:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 318:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 319:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   ldexp(float __x, int __exp)
+ 320:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_ldexpf(__x, __exp); }
+ 321:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 322:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 323:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   ldexp(long double __x, int __exp)
+ 324:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_ldexpl(__x, __exp); }
+ 325:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 326:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 327:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 328:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 329:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 330:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 331:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     ldexp(_Tp __x, int __exp)
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s 			page 10
+
+
+ 332:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_ldexp(__x, __exp); }
+ 333:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 334:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::log;
+ 335:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 336:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 337:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 338:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   log(float __x)
+ 339:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_logf(__x); }
+ 340:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 341:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 342:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   log(long double __x)
+ 343:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_logl(__x); }
+ 344:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 345:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 346:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 347:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 348:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 349:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 350:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     log(_Tp __x)
+ 351:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_log(__x); }
+ 352:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 353:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::log10;
+ 354:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 355:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 356:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 357:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   log10(float __x)
+ 358:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_log10f(__x); }
+ 359:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 360:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 361:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   log10(long double __x)
+ 362:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_log10l(__x); }
+ 363:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 364:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 365:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 366:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 367:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 368:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 369:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     log10(_Tp __x)
+ 370:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_log10(__x); }
+ 371:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 372:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::modf;
+ 373:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 374:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 375:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline float
+ 376:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   modf(float __x, float* __iptr)
+ 377:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_modff(__x, __iptr); }
+ 378:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 379:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline long double
+ 380:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   modf(long double __x, long double* __iptr)
+ 381:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_modfl(__x, __iptr); }
+ 382:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 383:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 384:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::pow;
+ 385:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 386:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 387:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 388:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   pow(float __x, float __y)
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s 			page 11
+
+
+ 389:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_powf(__x, __y); }
+ 390:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 391:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 392:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   pow(long double __x, long double __y)
+ 393:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_powl(__x, __y); }
+ 394:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 395:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #if __cplusplus < 201103L
+ 396:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   // _GLIBCXX_RESOLVE_LIB_DEFECTS
+ 397:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   // DR 550. What should the return type of pow(float,int) be?
+ 398:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline double
+ 399:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   pow(double __x, int __i)
+ 400:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_powi(__x, __i); }
+ 401:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 402:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline float
+ 403:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   pow(float __x, int __n)
+ 404:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_powif(__x, __n); }
+ 405:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 406:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline long double
+ 407:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   pow(long double __x, int __n)
+ 408:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_powil(__x, __n); }
+ 409:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 410:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 411:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 412:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp, typename _Up>
+ 413:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 414:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+ 415:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     pow(_Tp __x, _Up __y)
+ 138              		.loc 2 415 5 view .LVU35
+ 139              	.LBE4:
+  27:../Epiphyte/slewLimiter.cpp ****         c1_ = 1.0 - c2_;
+ 140              		.loc 1 27 18 is_stmt 0 view .LVU36
+ 141 0040 90ED067A 		vldr.32	s14, [r0, #24]
+ 142              	.LBB7:
+ 143              	.LBB5:
+ 416:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     {
+ 417:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+ 418:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****       return pow(__type(__x), __type(__y));
+ 144              		.loc 2 418 17 view .LVU37
+ 145 0044 B6EE000B 		vmov.f64	d0, #5.0e-1
+ 146              	.LVL5:
+ 147              		.loc 2 418 17 view .LVU38
+ 148              	.LBE5:
+ 149              	.LBE7:
+  27:../Epiphyte/slewLimiter.cpp ****         c1_ = 1.0 - c2_;
+ 150              		.loc 1 27 18 view .LVU39
+ 151 0048 87EE271A 		vdiv.f32	s2, s14, s15
+ 152              	.LVL6:
+ 153              	.LBB8:
+ 154              	.LBB6:
+ 155              		.loc 2 418 17 view .LVU40
+ 156 004c B7EEC11A 		vcvt.f64.f32	d1, s2
+ 157              	.LVL7:
+ 158              		.loc 2 418 17 view .LVU41
+ 159 0050 FFF7FEFF 		bl	pow
+ 160              	.LVL8:
+ 161              		.loc 2 418 17 view .LVU42
+ 162              	.LBE6:
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s 			page 12
+
+
+ 163              	.LBE8:
+  28:../Epiphyte/slewLimiter.cpp ****         prvhtim_ = htime_;
+ 164              		.loc 1 28 19 view .LVU43
+ 165 0054 B7EE007A 		vmov.f32	s14, #1.0e+0
+  27:../Epiphyte/slewLimiter.cpp ****         c1_ = 1.0 - c2_;
+ 166              		.loc 1 27 18 view .LVU44
+ 167 0058 F7EEC07B 		vcvt.f32.f64	s15, d0
+  29:../Epiphyte/slewLimiter.cpp ****     }
+ 168              		.loc 1 29 18 view .LVU45
+ 169 005c 2368     		ldr	r3, [r4]	@ float
+ 170 005e 2361     		str	r3, [r4, #16]	@ float
+  28:../Epiphyte/slewLimiter.cpp ****         prvhtim_ = htime_;
+ 171              		.loc 1 28 19 view .LVU46
+ 172 0060 37EE677A 		vsub.f32	s14, s14, s15
+  27:../Epiphyte/slewLimiter.cpp ****         c1_ = 1.0 - c2_;
+ 173              		.loc 1 27 13 view .LVU47
+ 174 0064 C4ED027A 		vstr.32	s15, [r4, #8]
+  28:../Epiphyte/slewLimiter.cpp ****         prvhtim_ = htime_;
+ 175              		.loc 1 28 9 is_stmt 1 view .LVU48
+  28:../Epiphyte/slewLimiter.cpp ****         prvhtim_ = htime_;
+ 176              		.loc 1 28 13 is_stmt 0 view .LVU49
+ 177 0068 84ED017A 		vstr.32	s14, [r4, #4]
+  29:../Epiphyte/slewLimiter.cpp ****     }
+ 178              		.loc 1 29 9 is_stmt 1 view .LVU50
+ 179 006c DBE7     		b	.L7
+ 180              		.cfi_endproc
+ 181              	.LFE555:
+ 183              		.text
+ 184              	.Letext0:
+ 185              		.file 3 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 186              		.file 4 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 187              		.file 5 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 188              		.file 6 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 189              		.file 7 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 190              		.file 8 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 191              		.file 9 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 192              		.file 10 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 193              		.file 11 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 194              		.file 12 "../Epiphyte/slewLimiter.h"
+ 195              		.file 13 "<built-in>"
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 slewLimiter.cpp
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s:17     .text._ZN7daisysp11SlewLimiter4InitEff:0000000000000000 $t
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s:26     .text._ZN7daisysp11SlewLimiter4InitEff:0000000000000000 _ZN7daisysp11SlewLimiter4InitEff
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s:63     .text._ZN7daisysp11SlewLimiter4InitEff:0000000000000020 $d
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s:68     .text._ZN7daisysp11SlewLimiter7ProcessEf:0000000000000000 $t
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccg1Qavf.s:76     .text._ZN7daisysp11SlewLimiter7ProcessEf:0000000000000000 _ZN7daisysp11SlewLimiter7ProcessEf
+
+UNDEFINED SYMBOLS
+pow

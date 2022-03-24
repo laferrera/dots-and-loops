@@ -1,0 +1,1202 @@
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"tapesaturator.cpp"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text._ZN7daisysp13TapeSaturator7ProcessEf,"ax",%progbits
+  17              		.align	1
+  18              		.p2align 2,,3
+  19              		.global	_ZN7daisysp13TapeSaturator7ProcessEf
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv5-d16
+  26              	_ZN7daisysp13TapeSaturator7ProcessEf:
+  27              	.LVL0:
+  28              	.LFB3031:
+  29              		.file 1 "../Epiphyte/tapesaturator.cpp"
+   1:../Epiphyte/tapesaturator.cpp **** #include "../DaisySP/Source/Utility/dsp.h"
+   2:../Epiphyte/tapesaturator.cpp **** #include "tapesaturator.h"
+   3:../Epiphyte/tapesaturator.cpp **** #include <algorithm>
+   4:../Epiphyte/tapesaturator.cpp **** #include <math.h>
+   5:../Epiphyte/tapesaturator.cpp **** 
+   6:../Epiphyte/tapesaturator.cpp **** namespace daisysp
+   7:../Epiphyte/tapesaturator.cpp **** {
+   8:../Epiphyte/tapesaturator.cpp ****     void TapeSaturator::Init()
+   9:../Epiphyte/tapesaturator.cpp ****     {
+  10:../Epiphyte/tapesaturator.cpp ****         SetDrive(.5f);
+  11:../Epiphyte/tapesaturator.cpp ****     }
+  12:../Epiphyte/tapesaturator.cpp ****     
+  13:../Epiphyte/tapesaturator.cpp ****     float TapeSaturator::Process(float in)
+  14:../Epiphyte/tapesaturator.cpp ****     {
+  30              		.loc 1 14 5 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  15:../Epiphyte/tapesaturator.cpp ****         // best so far!
+  16:../Epiphyte/tapesaturator.cpp ****         float c = drive_ * 5.f + 1.f;
+  35              		.loc 1 16 9 view .LVU1
+  36              		.loc 1 16 15 is_stmt 0 view .LVU2
+  37 0000 B1EE047A 		vmov.f32	s14, #5.0e+0
+  38 0004 D0ED006A 		vldr.32	s13, [r0]
+  39 0008 F7EE007A 		vmov.f32	s15, #1.0e+0
+  40 000c E6EE877A 		vfma.f32	s15, s13, s14
+  41              	.LVL1:
+  17:../Epiphyte/tapesaturator.cpp ****         return tanh(c * in);
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 2
+
+
+  42              		.loc 1 17 9 is_stmt 1 view .LVU3
+  43              	.LBB18:
+  44              	.LBI18:
+  45              		.file 2 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+   1:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // -*- C++ -*- C forwarding header.
+   2:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+   3:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // Copyright (C) 1997-2020 Free Software Foundation, Inc.
+   4:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** //
+   5:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // software; you can redistribute it and/or modify it under the
+   7:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // terms of the GNU General Public License as published by the
+   8:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // Free Software Foundation; either version 3, or (at your option)
+   9:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // any later version.
+  10:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  11:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // This library is distributed in the hope that it will be useful,
+  12:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // GNU General Public License for more details.
+  15:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  16:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // Under Section 7 of GPL version 3, you are granted additional
+  17:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // permissions described in the GCC Runtime Library Exception, version
+  18:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // 3.1, as published by the Free Software Foundation.
+  19:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  20:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // You should have received a copy of the GNU General Public License and
+  21:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // <http://www.gnu.org/licenses/>.
+  24:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  25:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** /** @file include/cmath
+  26:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  *  This is a Standard C++ Library file.  You should @c \#include this file
+  27:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  *  in your programs, rather than any of the @a *.h implementation files.
+  28:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  *
+  29:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  *  This is the C++ version of the Standard C Library header @c math.h,
+  30:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  *  and its contents are (mostly) the same as that header, but are all
+  31:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  *  contained in the namespace @c std (except for names which are defined
+  32:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  *  as macros in C).
+  33:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****  */
+  34:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  35:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** //
+  36:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // ISO C++ 14882: 26.5  C library
+  37:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** //
+  38:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  39:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #pragma GCC system_header
+  40:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  41:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #include <bits/c++config.h>
+  42:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #include <bits/cpp_type_traits.h>
+  43:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #include <ext/type_traits.h>
+  44:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #define _GLIBCXX_INCLUDE_NEXT_C_HEADERS
+  45:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #include_next <math.h>
+  46:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS
+  47:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #include <bits/std_abs.h>
+  48:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  49:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef _GLIBCXX_CMATH
+  50:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #define _GLIBCXX_CMATH 1
+  51:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  52:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** // Get rid of those macros defined in <math.h> in lieu of real functions.
+  53:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef div
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 3
+
+
+  54:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef acos
+  55:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef asin
+  56:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef atan
+  57:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef atan2
+  58:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef ceil
+  59:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef cos
+  60:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef cosh
+  61:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef exp
+  62:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef fabs
+  63:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef floor
+  64:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef fmod
+  65:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef frexp
+  66:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef ldexp
+  67:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef log
+  68:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef log10
+  69:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef modf
+  70:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef pow
+  71:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef sin
+  72:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef sinh
+  73:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef sqrt
+  74:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef tan
+  75:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #undef tanh
+  76:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  77:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** extern "C++"
+  78:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** {
+  79:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** namespace std _GLIBCXX_VISIBILITY(default)
+  80:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** {
+  81:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
+  82:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  83:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::acos;
+  84:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  85:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+  86:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+  87:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   acos(float __x)
+  88:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_acosf(__x); }
+  89:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  90:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+  91:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   acos(long double __x)
+  92:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_acosl(__x); }
+  93:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+  94:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+  95:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+  96:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+  97:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+  98:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+  99:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     acos(_Tp __x)
+ 100:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_acos(__x); }
+ 101:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 102:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::asin;
+ 103:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 104:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 105:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 106:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   asin(float __x)
+ 107:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_asinf(__x); }
+ 108:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 109:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 110:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   asin(long double __x)
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 4
+
+
+ 111:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_asinl(__x); }
+ 112:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 113:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 114:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 115:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 116:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 117:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 118:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     asin(_Tp __x)
+ 119:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_asin(__x); }
+ 120:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 121:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::atan;
+ 122:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 123:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 124:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 125:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   atan(float __x)
+ 126:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_atanf(__x); }
+ 127:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 128:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 129:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   atan(long double __x)
+ 130:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_atanl(__x); }
+ 131:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 132:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 133:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 134:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 135:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 136:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 137:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     atan(_Tp __x)
+ 138:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_atan(__x); }
+ 139:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 140:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::atan2;
+ 141:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 142:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 143:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 144:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   atan2(float __y, float __x)
+ 145:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_atan2f(__y, __x); }
+ 146:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 147:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 148:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   atan2(long double __y, long double __x)
+ 149:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_atan2l(__y, __x); }
+ 150:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 151:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 152:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp, typename _Up>
+ 153:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 154:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+ 155:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     atan2(_Tp __y, _Up __x)
+ 156:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     {
+ 157:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+ 158:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****       return atan2(__type(__y), __type(__x));
+ 159:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     }
+ 160:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 161:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::ceil;
+ 162:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 163:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 164:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 165:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   ceil(float __x)
+ 166:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_ceilf(__x); }
+ 167:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 5
+
+
+ 168:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 169:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   ceil(long double __x)
+ 170:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_ceill(__x); }
+ 171:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 172:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 173:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 174:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 175:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 176:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 177:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     ceil(_Tp __x)
+ 178:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_ceil(__x); }
+ 179:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 180:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::cos;
+ 181:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 182:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 183:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 184:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   cos(float __x)
+ 185:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_cosf(__x); }
+ 186:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 187:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 188:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   cos(long double __x)
+ 189:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_cosl(__x); }
+ 190:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 191:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 192:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 193:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 194:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 195:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 196:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     cos(_Tp __x)
+ 197:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_cos(__x); }
+ 198:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 199:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::cosh;
+ 200:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 201:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 202:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 203:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   cosh(float __x)
+ 204:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_coshf(__x); }
+ 205:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 206:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 207:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   cosh(long double __x)
+ 208:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_coshl(__x); }
+ 209:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 210:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 211:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 212:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 213:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 214:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 215:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     cosh(_Tp __x)
+ 216:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_cosh(__x); }
+ 217:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 218:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::exp;
+ 219:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 220:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 221:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 222:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   exp(float __x)
+ 223:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_expf(__x); }
+ 224:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 6
+
+
+ 225:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 226:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   exp(long double __x)
+ 227:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_expl(__x); }
+ 228:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 229:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 230:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 231:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 232:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 233:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 234:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     exp(_Tp __x)
+ 235:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_exp(__x); }
+ 236:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 237:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::fabs;
+ 238:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 239:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 240:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 241:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   fabs(float __x)
+ 242:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_fabsf(__x); }
+ 243:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 244:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 245:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   fabs(long double __x)
+ 246:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_fabsl(__x); }
+ 247:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 248:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 249:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 250:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 251:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 252:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 253:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     fabs(_Tp __x)
+ 254:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_fabs(__x); }
+ 255:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 256:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::floor;
+ 257:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 258:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 259:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 260:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   floor(float __x)
+ 261:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_floorf(__x); }
+ 262:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 263:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 264:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   floor(long double __x)
+ 265:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_floorl(__x); }
+ 266:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 267:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 268:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 269:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 270:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 271:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 272:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     floor(_Tp __x)
+ 273:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_floor(__x); }
+ 274:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 275:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::fmod;
+ 276:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 277:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 278:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 279:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   fmod(float __x, float __y)
+ 280:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_fmodf(__x, __y); }
+ 281:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 7
+
+
+ 282:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 283:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   fmod(long double __x, long double __y)
+ 284:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_fmodl(__x, __y); }
+ 285:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 286:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 287:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp, typename _Up>
+ 288:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 289:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+ 290:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     fmod(_Tp __x, _Up __y)
+ 291:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     {
+ 292:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+ 293:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****       return fmod(__type(__x), __type(__y));
+ 294:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     }
+ 295:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 296:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::frexp;
+ 297:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 298:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 299:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline float
+ 300:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   frexp(float __x, int* __exp)
+ 301:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_frexpf(__x, __exp); }
+ 302:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 303:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline long double
+ 304:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   frexp(long double __x, int* __exp)
+ 305:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_frexpl(__x, __exp); }
+ 306:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 307:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 308:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 309:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 310:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 311:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 312:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     frexp(_Tp __x, int* __exp)
+ 313:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_frexp(__x, __exp); }
+ 314:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 315:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::ldexp;
+ 316:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 317:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 318:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 319:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   ldexp(float __x, int __exp)
+ 320:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_ldexpf(__x, __exp); }
+ 321:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 322:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 323:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   ldexp(long double __x, int __exp)
+ 324:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_ldexpl(__x, __exp); }
+ 325:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 326:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 327:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 328:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 329:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 330:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 331:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     ldexp(_Tp __x, int __exp)
+ 332:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_ldexp(__x, __exp); }
+ 333:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 334:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::log;
+ 335:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 336:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 337:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 338:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   log(float __x)
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 8
+
+
+ 339:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_logf(__x); }
+ 340:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 341:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 342:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   log(long double __x)
+ 343:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_logl(__x); }
+ 344:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 345:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 346:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 347:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 348:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 349:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 350:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     log(_Tp __x)
+ 351:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_log(__x); }
+ 352:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 353:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::log10;
+ 354:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 355:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 356:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 357:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   log10(float __x)
+ 358:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_log10f(__x); }
+ 359:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 360:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 361:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   log10(long double __x)
+ 362:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_log10l(__x); }
+ 363:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 364:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 365:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 366:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 367:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 368:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 369:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     log10(_Tp __x)
+ 370:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_log10(__x); }
+ 371:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 372:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::modf;
+ 373:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 374:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 375:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline float
+ 376:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   modf(float __x, float* __iptr)
+ 377:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_modff(__x, __iptr); }
+ 378:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 379:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline long double
+ 380:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   modf(long double __x, long double* __iptr)
+ 381:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_modfl(__x, __iptr); }
+ 382:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 383:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 384:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::pow;
+ 385:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 386:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 387:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 388:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   pow(float __x, float __y)
+ 389:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_powf(__x, __y); }
+ 390:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 391:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 392:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   pow(long double __x, long double __y)
+ 393:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_powl(__x, __y); }
+ 394:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 395:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #if __cplusplus < 201103L
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 9
+
+
+ 396:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   // _GLIBCXX_RESOLVE_LIB_DEFECTS
+ 397:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   // DR 550. What should the return type of pow(float,int) be?
+ 398:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline double
+ 399:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   pow(double __x, int __i)
+ 400:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_powi(__x, __i); }
+ 401:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 402:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline float
+ 403:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   pow(float __x, int __n)
+ 404:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_powif(__x, __n); }
+ 405:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 406:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline long double
+ 407:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   pow(long double __x, int __n)
+ 408:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_powil(__x, __n); }
+ 409:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 410:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 411:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 412:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp, typename _Up>
+ 413:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 414:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+ 415:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     pow(_Tp __x, _Up __y)
+ 416:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     {
+ 417:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+ 418:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****       return pow(__type(__x), __type(__y));
+ 419:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     }
+ 420:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 421:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::sin;
+ 422:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 423:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 424:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 425:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   sin(float __x)
+ 426:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_sinf(__x); }
+ 427:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 428:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 429:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   sin(long double __x)
+ 430:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_sinl(__x); }
+ 431:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 432:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 433:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 434:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 435:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 436:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 437:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     sin(_Tp __x)
+ 438:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_sin(__x); }
+ 439:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 440:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::sinh;
+ 441:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 442:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 443:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 444:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   sinh(float __x)
+ 445:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_sinhf(__x); }
+ 446:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 447:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 448:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   sinh(long double __x)
+ 449:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_sinhl(__x); }
+ 450:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 451:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 452:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 10
+
+
+ 453:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 454:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 455:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 456:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     sinh(_Tp __x)
+ 457:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_sinh(__x); }
+ 458:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 459:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::sqrt;
+ 460:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 461:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 462:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 463:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   sqrt(float __x)
+ 464:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_sqrtf(__x); }
+ 465:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 466:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 467:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   sqrt(long double __x)
+ 468:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_sqrtl(__x); }
+ 469:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 470:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 471:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 472:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 473:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 474:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 475:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     sqrt(_Tp __x)
+ 476:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_sqrt(__x); }
+ 477:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 478:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::tan;
+ 479:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 480:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 481:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 482:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   tan(float __x)
+ 483:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_tanf(__x); }
+ 484:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 485:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 486:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   tan(long double __x)
+ 487:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_tanl(__x); }
+ 488:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #endif
+ 489:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 490:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   template<typename _Tp>
+ 491:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 492:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 493:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****                                     double>::__type
+ 494:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     tan(_Tp __x)
+ 495:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****     { return __builtin_tan(__x); }
+ 496:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 497:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   using ::tanh;
+ 498:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** 
+ 499:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 500:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 501:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   tanh(float __x)
+  46              		.loc 2 501 3 view .LVU4
+  47              	.LBB19:
+ 502:/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/cmath ****   { return __builtin_tanhf(__x); }
+  48              		.loc 2 502 5 view .LVU5
+  49              		.loc 2 502 27 is_stmt 0 view .LVU6
+  50 0010 27EE800A 		vmul.f32	s0, s15, s0
+  51              	.LVL2:
+  52              		.loc 2 502 27 view .LVU7
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 11
+
+
+  53 0014 FFF7FEBF 		b	tanhf
+  54              	.LVL3:
+  55              		.loc 2 502 27 view .LVU8
+  56              	.LBE19:
+  57              	.LBE18:
+  58              		.cfi_endproc
+  59              	.LFE3031:
+  61              		.section	.text._ZN7daisysp13TapeSaturator8SetDriveEf,"ax",%progbits
+  62              		.align	1
+  63              		.p2align 2,,3
+  64              		.global	_ZN7daisysp13TapeSaturator8SetDriveEf
+  65              		.syntax unified
+  66              		.thumb
+  67              		.thumb_func
+  68              		.fpu fpv5-d16
+  70              	_ZN7daisysp13TapeSaturator8SetDriveEf:
+  71              	.LVL4:
+  72              	.LFB3032:
+  18:../Epiphyte/tapesaturator.cpp **** 
+  19:../Epiphyte/tapesaturator.cpp ****         // float c = DSY_MAX(-pre_gain_, DSY_MIN(pre_gain_, in));
+  20:../Epiphyte/tapesaturator.cpp ****         // float driven = c + tanh((in - c) / (1.0f - pre_gain_)) * (1.0f - pre_gain_);
+  21:../Epiphyte/tapesaturator.cpp ****         // return driven;
+  22:../Epiphyte/tapesaturator.cpp **** 
+  23:../Epiphyte/tapesaturator.cpp ****         // float pre = pre_gain_ * in;
+  24:../Epiphyte/tapesaturator.cpp ****         // pre =  SoftLimit(pre);
+  25:../Epiphyte/tapesaturator.cpp ****         // return SoftClip(pre) * post_gain_;
+  26:../Epiphyte/tapesaturator.cpp **** 
+  27:../Epiphyte/tapesaturator.cpp ****         // float driven = tanh(in);
+  28:../Epiphyte/tapesaturator.cpp ****         // return driven;
+  29:../Epiphyte/tapesaturator.cpp **** 
+  30:../Epiphyte/tapesaturator.cpp ****         // float pre = pre_gain_ * in;
+  31:../Epiphyte/tapesaturator.cpp ****         // return SoftClip(pre);
+  32:../Epiphyte/tapesaturator.cpp **** 
+  33:../Epiphyte/tapesaturator.cpp ****         // float pre = pre_gain_ * in;
+  34:../Epiphyte/tapesaturator.cpp ****         // return SoftClip(pre) * post_gain_;
+  35:../Epiphyte/tapesaturator.cpp ****     }
+  36:../Epiphyte/tapesaturator.cpp **** 
+  37:../Epiphyte/tapesaturator.cpp ****     void TapeSaturator::SetDrive(float drive)
+  38:../Epiphyte/tapesaturator.cpp ****     {
+  73              		.loc 1 38 5 is_stmt 1 view -0
+  74              		.cfi_startproc
+  75              		@ args = 0, pretend = 0, frame = 0
+  76              		@ frame_needed = 0, uses_anonymous_args = 0
+  77              		@ link register save eliminated.
+  39:../Epiphyte/tapesaturator.cpp ****         drive = fclamp(drive, 0.f, 1.f);
+  78              		.loc 1 39 9 view .LVU10
+  79              	.LBB31:
+  80              	.LBB32:
+  81              	.LBB33:
+  82              		.file 3 "../Epiphyte/../DaisySP/Source/Utility/dsp.h"
+   1:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** Helpful defines, functions, and other utilities for use in/with daisysp modules.
+   2:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** */
+   3:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #pragma once
+   4:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #ifndef DSY_CORE_DSP
+   5:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #define DSY_CORE_DSP
+   6:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #include <cassert>
+   7:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #include <cstdint>
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 12
+
+
+   8:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #include <random>
+   9:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #include <cmath>
+  10:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+  11:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** PIs
+  12:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** */
+  13:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #define PI_F 3.1415927410125732421875f
+  14:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #define TWOPI_F (2.0f * PI_F)
+  15:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #define HALFPI_F (PI_F * 0.5f)
+  16:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #define DSY_MIN(in, mn) (in < mn ? in : mn)
+  17:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #define DSY_MAX(in, mx) (in > mx ? in : mx)
+  18:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #define DSY_CLAMP(in, mn, mx) (DSY_MIN(DSY_MAX(in, mn), mx))
+  19:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #define DSY_COUNTOF(_arr) (sizeof(_arr) / sizeof(_arr[0]))
+  20:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+  21:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** namespace daisysp
+  22:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+  23:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** //Avoids division for random floats. e.g. rand() * kRandFrac
+  24:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** static constexpr float kRandFrac = 1.f / (float)RAND_MAX;
+  25:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+  26:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** //Convert from semitones to other units. e.g. 2 ^ (kOneTwelfth * x)
+  27:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** static constexpr float kOneTwelfth = 1.f / 12.f;
+  28:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+  29:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** efficient floating point min/max
+  30:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** c/o stephen mccaul
+  31:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** */
+  32:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float fmax(float a, float b)
+  33:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+  34:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     float r;
+  35:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #ifdef __arm__
+  36:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     asm("vmaxnm.f32 %[d], %[n], %[m]" : [d] "=t"(r) : [n] "t"(a), [m] "t"(b) :);
+  83              		.loc 3 36 5 is_stmt 0 view .LVU11
+  84 0000 DFED2C7A 		vldr.32	s15, .L7
+  85              	.LBE33:
+  86              	.LBE32:
+  87              	.LBB35:
+  88              	.LBB36:
+  37:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #else
+  38:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     r = (a > b) ? a : b;
+  39:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #endif // __arm__
+  40:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return r;
+  41:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+  42:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+  43:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float fmin(float a, float b)
+  44:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+  45:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     float r;
+  46:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #ifdef __arm__
+  47:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     asm("vminnm.f32 %[d], %[n], %[m]" : [d] "=t"(r) : [n] "t"(a), [m] "t"(b) :);
+  89              		.loc 3 47 5 view .LVU12
+  90 0004 B7EE005A 		vmov.f32	s10, #1.0e+0
+  91              	.LVL5:
+  92              		.loc 3 47 5 view .LVU13
+  93              	.LBE36:
+  94              	.LBE35:
+  95              	.LBI31:
+  48:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #else
+  49:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     r = (a < b) ? a : b;
+  50:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #endif // __arm__
+  51:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return r;
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 13
+
+
+  52:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+  53:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+  54:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** quick fp clamp
+  55:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** */
+  56:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float fclamp(float in, float min, float max)
+  96              		.loc 3 56 14 is_stmt 1 view .LVU14
+  97              	.LBE31:
+  57:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+  58:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return fmin(fmax(in, min), max);
+  98              		.loc 3 58 5 view .LVU15
+  99              	.LBB40:
+ 100              	.LBB38:
+ 101              	.LBI32:
+  32:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 102              		.loc 3 32 14 view .LVU16
+ 103              	.LBB34:
+  34:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #ifdef __arm__
+ 104              		.loc 3 34 5 view .LVU17
+  36:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #else
+ 105              		.loc 3 36 5 view .LVU18
+ 106              		.syntax unified
+ 107              	@ 36 "../Epiphyte/../DaisySP/Source/Utility/dsp.h" 1
+ 108 0008 80FE270A 		vmaxnm.f32 s0, s0, s15
+ 109              	@ 0 "" 2
+ 110              	.LVL6:
+  40:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 111              		.loc 3 40 5 view .LVU19
+  40:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 112              		.loc 3 40 5 is_stmt 0 view .LVU20
+ 113              		.thumb
+ 114              		.syntax unified
+ 115              	.LBE34:
+ 116              	.LBE38:
+ 117              	.LBB39:
+ 118              	.LBI35:
+  43:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 119              		.loc 3 43 14 is_stmt 1 view .LVU21
+ 120              	.LBB37:
+  45:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #ifdef __arm__
+ 121              		.loc 3 45 5 view .LVU22
+  47:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** #else
+ 122              		.loc 3 47 5 view .LVU23
+ 123              		.syntax unified
+ 124              	@ 47 "../Epiphyte/../DaisySP/Source/Utility/dsp.h" 1
+ 125 000c 80FE450A 		vminnm.f32 s0, s0, s10
+ 126              	@ 0 "" 2
+ 127              	.LVL7:
+  51:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 128              		.loc 3 51 5 view .LVU24
+  51:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 129              		.loc 3 51 5 is_stmt 0 view .LVU25
+ 130              		.thumb
+ 131              		.syntax unified
+ 132              	.LBE37:
+ 133              	.LBE39:
+ 134              	.LBE40:
+  40:../Epiphyte/tapesaturator.cpp ****         drive_ = drive;
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 14
+
+
+ 135              		.loc 1 40 9 is_stmt 1 view .LVU26
+  41:../Epiphyte/tapesaturator.cpp **** 
+  42:../Epiphyte/tapesaturator.cpp ****         const float drive_2 = drive_ * drive_;
+ 136              		.loc 1 42 21 is_stmt 0 view .LVU27
+ 137 0010 20EE006A 		vmul.f32	s12, s0, s0
+  43:../Epiphyte/tapesaturator.cpp ****         const float pre_gain_a = drive_ * 0.5f;
+  44:../Epiphyte/tapesaturator.cpp ****         const float pre_gain_b = drive_2 * drive_2 * drive_ * 24.0f;
+  45:../Epiphyte/tapesaturator.cpp ****         pre_gain_ = pre_gain_a + (pre_gain_b - pre_gain_a) * drive_2;
+  46:../Epiphyte/tapesaturator.cpp **** 
+  47:../Epiphyte/tapesaturator.cpp ****         const float drive_squashed = drive_ * (2.0f - drive_);
+  48:../Epiphyte/tapesaturator.cpp ****         post_gain_ = 1.0f / SoftClip(0.33f + drive_squashed * (pre_gain_ - 0.33f));
+ 138              		.loc 1 48 74 view .LVU28
+ 139 0014 9FED287A 		vldr.32	s14, .L7+4
+  44:../Epiphyte/tapesaturator.cpp ****         pre_gain_ = pre_gain_a + (pre_gain_b - pre_gain_a) * drive_2;
+ 140              		.loc 1 44 21 view .LVU29
+ 141 0018 B3EE084A 		vmov.f32	s8, #2.4e+1
+  40:../Epiphyte/tapesaturator.cpp **** 
+ 142              		.loc 1 40 16 view .LVU30
+ 143 001c 80ED000A 		vstr.32	s0, [r0]
+  42:../Epiphyte/tapesaturator.cpp ****         const float pre_gain_a = drive_ * 0.5f;
+ 144              		.loc 1 42 9 is_stmt 1 view .LVU31
+ 145              	.LVL8:
+  43:../Epiphyte/tapesaturator.cpp ****         const float pre_gain_b = drive_2 * drive_2 * drive_ * 24.0f;
+ 146              		.loc 1 43 9 view .LVU32
+  44:../Epiphyte/tapesaturator.cpp ****         pre_gain_ = pre_gain_a + (pre_gain_b - pre_gain_a) * drive_2;
+ 147              		.loc 1 44 9 view .LVU33
+  45:../Epiphyte/tapesaturator.cpp **** 
+ 148              		.loc 1 45 9 view .LVU34
+  45:../Epiphyte/tapesaturator.cpp **** 
+ 149              		.loc 1 45 46 is_stmt 0 view .LVU35
+ 150 0020 F6EE005A 		vmov.f32	s11, #5.0e-1
+  44:../Epiphyte/tapesaturator.cpp ****         pre_gain_ = pre_gain_a + (pre_gain_b - pre_gain_a) * drive_2;
+ 151              		.loc 1 44 42 view .LVU36
+ 152 0024 66EE067A 		vmul.f32	s15, s12, s12
+  47:../Epiphyte/tapesaturator.cpp ****         post_gain_ = 1.0f / SoftClip(0.33f + drive_squashed * (pre_gain_ - 0.33f));
+ 153              		.loc 1 47 53 view .LVU37
+ 154 0028 F0EE006A 		vmov.f32	s13, #2.0e+0
+ 155              	.LBB41:
+ 156              	.LBB42:
+  59:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+  60:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+  61:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** From Musicdsp.org "Fast power and root estimates for 32bit floats)
+  62:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** Original code by Stefan Stenzel
+  63:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** These are approximations
+  64:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** */
+  65:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float fastpower(float f, int n)
+  66:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+  67:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     long *lp, l;
+  68:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     lp = (long *)(&f);
+  69:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     l  = *lp;
+  70:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     l -= 0x3F800000;
+  71:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     l <<= (n - 1);
+  72:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     l += 0x3F800000;
+  73:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     *lp = l;
+  74:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return f;
+  75:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+  76:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 15
+
+
+  77:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float fastroot(float f, int n)
+  78:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+  79:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     long *lp, l;
+  80:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     lp = (long *)(&f);
+  81:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     l  = *lp;
+  82:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     l -= 0x3F800000;
+  83:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     l >>= (n = 1);
+  84:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     l += 0x3F800000;
+  85:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     *lp = l;
+  86:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return f;
+  87:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+  88:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+  89:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** From http://openaudio.blogspot.com/2017/02/faster-log10-and-pow.html
+  90:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** No approximation, pow10f(x) gives a 90% speed increase over powf(10.f, x)
+  91:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** */
+  92:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float pow10f(float f)
+  93:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+  94:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return expf(2.302585092994046f * f);
+  95:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+  96:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+  97:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /* Original code for fastlog2f by Dr. Paul Beckmann from the ARM community forum, adapted from the 
+  98:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** About 25% performance increase over std::log10f
+  99:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** */
+ 100:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float fastlog2f(float f)
+ 101:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 102:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     float frac;
+ 103:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     int   exp;
+ 104:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     frac = frexpf(fabsf(f), &exp);
+ 105:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     f    = 1.23149591368684f;
+ 106:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     f *= frac;
+ 107:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     f += -4.11852516267426f;
+ 108:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     f *= frac;
+ 109:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     f += 6.02197014179219f;
+ 110:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     f *= frac;
+ 111:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     f += -3.13396450166353f;
+ 112:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     f += exp;
+ 113:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return (f);
+ 114:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 115:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+ 116:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float fastlog10f(float f)
+ 117:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 118:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return fastlog2f(f) * 0.3010299956639812f;
+ 119:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 120:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+ 121:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** Midi to frequency helper
+ 122:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** */
+ 123:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float mtof(float m)
+ 124:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 125:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return powf(2, (m - 69.0f) / 12.0f) * 440.0f;
+ 126:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 127:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+ 128:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+ 129:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** one pole lpf
+ 130:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** out is passed by reference, and must be retained between
+ 131:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** calls to properly filter the signal
+ 132:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** coeff can be calculated:
+ 133:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** coeff = 1.0 / (time * sample_rate) ; where time is in seconds
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 16
+
+
+ 134:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** */
+ 135:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline void fonepole(float &out, float in, float coeff)
+ 136:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 137:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     out += coeff * (in - out);
+ 138:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 139:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+ 140:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** Simple 3-point median filter
+ 141:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** c/o stephen mccaul
+ 142:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** */
+ 143:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** template <typename T>
+ 144:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** T median(T a, T b, T c)
+ 145:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 146:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return (b < a) ? (b < c) ? (c < a) ? c : a : b
+ 147:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****                    : (a < c) ? (c < b) ? c : b : a;
+ 148:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 149:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+ 150:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** Ported from pichenettes/eurorack/plaits/dsp/oscillator/oscillator.h
+ 151:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** */
+ 152:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float ThisBlepSample(float t)
+ 153:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 154:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return 0.5f * t * t;
+ 155:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 156:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+ 157:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** Ported from pichenettes/eurorack/plaits/dsp/oscillator/oscillator.h
+ 158:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** */
+ 159:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float NextBlepSample(float t)
+ 160:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 161:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     t = 1.0f - t;
+ 162:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return -0.5f * t * t;
+ 163:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 164:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+ 165:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** Ported from pichenettes/eurorack/plaits/dsp/oscillator/oscillator.h
+ 166:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** */
+ 167:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float NextIntegratedBlepSample(float t)
+ 168:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 169:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     const float t1 = 0.5f * t;
+ 170:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     const float t2 = t1 * t1;
+ 171:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     const float t4 = t2 * t2;
+ 172:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return 0.1875f - t1 + 1.5f * t2 - t4;
+ 173:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 174:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+ 175:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** Ported from pichenettes/eurorack/plaits/dsp/oscillator/oscillator.h
+ 176:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** */
+ 177:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float ThisIntegratedBlepSample(float t)
+ 178:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 179:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return NextIntegratedBlepSample(1.0f - t);
+ 180:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 181:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+ 182:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** Soft Limiting function ported extracted from pichenettes/stmlib */
+ 183:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float SoftLimit(float x)
+ 184:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 185:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     return x * (27.f + x * x) / (27.f + 9.f * x * x);
+ 186:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 187:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** 
+ 188:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** /** Soft Clipping function extracted from pichenettes/stmlib */
+ 189:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** inline float SoftClip(float x)
+ 190:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 17
+
+
+ 191:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     if(x < -3.0f)
+ 157              		.loc 3 191 5 view .LVU38
+ 158 002c F8EE084A 		vmov.f32	s9, #-3.0e+0
+ 159              	.LBE42:
+ 160              	.LBE41:
+  44:../Epiphyte/tapesaturator.cpp ****         pre_gain_ = pre_gain_a + (pre_gain_b - pre_gain_a) * drive_2;
+ 161              		.loc 1 44 52 view .LVU39
+ 162 0030 67EE807A 		vmul.f32	s15, s15, s0
+  47:../Epiphyte/tapesaturator.cpp ****         post_gain_ = 1.0f / SoftClip(0.33f + drive_squashed * (pre_gain_ - 0.33f));
+ 163              		.loc 1 47 53 view .LVU40
+ 164 0034 76EEC06A 		vsub.f32	s13, s13, s0
+  44:../Epiphyte/tapesaturator.cpp ****         pre_gain_ = pre_gain_a + (pre_gain_b - pre_gain_a) * drive_2;
+ 165              		.loc 1 44 21 view .LVU41
+ 166 0038 67EE847A 		vmul.f32	s15, s15, s8
+ 167              	.LVL9:
+  47:../Epiphyte/tapesaturator.cpp ****         post_gain_ = 1.0f / SoftClip(0.33f + drive_squashed * (pre_gain_ - 0.33f));
+ 168              		.loc 1 47 21 view .LVU42
+ 169 003c 66EE806A 		vmul.f32	s13, s13, s0
+  45:../Epiphyte/tapesaturator.cpp **** 
+ 170              		.loc 1 45 46 view .LVU43
+ 171 0040 E0EE657A 		vfms.f32	s15, s0, s11
+ 172              	.LVL10:
+  45:../Epiphyte/tapesaturator.cpp **** 
+ 173              		.loc 1 45 60 view .LVU44
+ 174 0044 67EE867A 		vmul.f32	s15, s15, s12
+  45:../Epiphyte/tapesaturator.cpp **** 
+ 175              		.loc 1 45 32 view .LVU45
+ 176 0048 E0EE257A 		vfma.f32	s15, s0, s11
+ 177              		.loc 1 48 74 view .LVU46
+ 178 004c 37EEC76A 		vsub.f32	s12, s15, s14
+ 179              	.LVL11:
+  45:../Epiphyte/tapesaturator.cpp **** 
+ 180              		.loc 1 45 19 view .LVU47
+ 181 0050 C0ED017A 		vstr.32	s15, [r0, #4]
+  47:../Epiphyte/tapesaturator.cpp ****         post_gain_ = 1.0f / SoftClip(0.33f + drive_squashed * (pre_gain_ - 0.33f));
+ 182              		.loc 1 47 9 is_stmt 1 view .LVU48
+ 183              	.LVL12:
+ 184              		.loc 1 48 9 view .LVU49
+ 185              		.loc 1 48 37 is_stmt 0 view .LVU50
+ 186 0054 F0EE477A 		vmov.f32	s15, s14
+ 187 0058 E6EE267A 		vfma.f32	s15, s12, s13
+ 188              	.LVL13:
+ 189              	.LBB51:
+ 190              	.LBI41:
+ 189:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 191              		.loc 3 189 14 is_stmt 1 view .LVU51
+ 192              	.LBB47:
+ 193              		.loc 3 191 5 view .LVU52
+ 194 005c F4EEE47A 		vcmpe.f32	s15, s9
+ 195 0060 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 196 0064 20D4     		bmi	.L5
+ 192:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****         return -1.0f;
+ 193:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     else if(x > 3.0f)
+ 197              		.loc 3 193 10 view .LVU53
+ 198 0066 B0EE087A 		vmov.f32	s14, #3.0e+0
+ 199 006a F4EEC77A 		vcmpe.f32	s15, s14
+ 200 006e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 18
+
+
+ 201 0072 14DC     		bgt	.L6
+ 202              	.LVL14:
+ 203              	.LBB43:
+ 204              	.LBI43:
+ 189:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 205              		.loc 3 189 14 view .LVU54
+ 206              	.LBE43:
+ 207              	.LBE47:
+ 208              	.LBE51:
+ 194:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****         return 1.0f;
+ 195:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****     else
+ 196:../Epiphyte/../DaisySP/Source/Utility/dsp.h ****         return SoftLimit(x);
+ 209              		.loc 3 196 9 view .LVU55
+ 210              	.LBB52:
+ 211              	.LBB48:
+ 212              	.LBB46:
+ 213              	.LBB44:
+ 214              	.LBI44:
+ 183:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** {
+ 215              		.loc 3 183 14 view .LVU56
+ 216              	.LBB45:
+ 185:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 217              		.loc 3 185 5 view .LVU57
+ 185:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 218              		.loc 3 185 22 is_stmt 0 view .LVU58
+ 219 0074 B3EE0B7A 		vmov.f32	s14, #2.7e+1
+ 185:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 220              		.loc 3 185 45 view .LVU59
+ 221 0078 F2EE026A 		vmov.f32	s13, #9.0e+0
+ 185:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 222              		.loc 3 185 22 view .LVU60
+ 223 007c B0EE476A 		vmov.f32	s12, s14
+ 185:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 224              		.loc 3 185 45 view .LVU61
+ 225 0080 67EEA66A 		vmul.f32	s13, s15, s13
+ 185:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 226              		.loc 3 185 22 view .LVU62
+ 227 0084 A7EEA76A 		vfma.f32	s12, s15, s15
+ 185:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 228              		.loc 3 185 39 view .LVU63
+ 229 0088 A7EEA67A 		vfma.f32	s14, s15, s13
+ 230              	.LVL15:
+ 185:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 231              		.loc 3 185 14 view .LVU64
+ 232 008c 67EE867A 		vmul.f32	s15, s15, s12
+ 233              	.LVL16:
+ 185:../Epiphyte/../DaisySP/Source/Utility/dsp.h **** }
+ 234              		.loc 3 185 52 view .LVU65
+ 235 0090 C7EE876A 		vdiv.f32	s13, s15, s14
+ 236              	.LBE45:
+ 237              	.LBE44:
+ 238              	.LBE46:
+ 239              	.LBE48:
+ 240              	.LBE52:
+ 241              		.loc 1 48 27 view .LVU66
+ 242 0094 C5EE267A 		vdiv.f32	s15, s10, s13
+ 243              	.LVL17:
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 19
+
+
+ 244              		.loc 1 48 20 view .LVU67
+ 245 0098 C0ED027A 		vstr.32	s15, [r0, #8]
+  49:../Epiphyte/tapesaturator.cpp ****     }
+ 246              		.loc 1 49 5 view .LVU68
+ 247 009c 7047     		bx	lr
+ 248              	.LVL18:
+ 249              	.L6:
+ 250              	.LBB53:
+ 251              	.LBB49:
+ 252              		.loc 1 49 5 view .LVU69
+ 253 009e F0EE457A 		vmov.f32	s15, s10
+ 254              	.LVL19:
+ 255              		.loc 1 49 5 view .LVU70
+ 256              	.LBE49:
+ 257              	.LBE53:
+  48:../Epiphyte/tapesaturator.cpp ****     }
+ 258              		.loc 1 48 20 view .LVU71
+ 259 00a2 C0ED027A 		vstr.32	s15, [r0, #8]
+ 260              		.loc 1 49 5 view .LVU72
+ 261 00a6 7047     		bx	lr
+ 262              	.LVL20:
+ 263              	.L5:
+ 264              	.LBB54:
+ 265              	.LBB50:
+ 266              		.loc 1 49 5 view .LVU73
+ 267 00a8 FFEE007A 		vmov.f32	s15, #-1.0e+0
+ 268              	.LVL21:
+ 269              		.loc 1 49 5 view .LVU74
+ 270              	.LBE50:
+ 271              	.LBE54:
+  48:../Epiphyte/tapesaturator.cpp ****     }
+ 272              		.loc 1 48 20 view .LVU75
+ 273 00ac C0ED027A 		vstr.32	s15, [r0, #8]
+ 274              		.loc 1 49 5 view .LVU76
+ 275 00b0 7047     		bx	lr
+ 276              	.L8:
+ 277 00b2 00BF     		.align	2
+ 278              	.L7:
+ 279 00b4 00000000 		.word	0
+ 280 00b8 C3F5A83E 		.word	1051260355
+ 281              		.cfi_endproc
+ 282              	.LFE3032:
+ 284              		.section	.text._ZN7daisysp13TapeSaturator4InitEv,"ax",%progbits
+ 285              		.align	1
+ 286              		.p2align 2,,3
+ 287              		.global	_ZN7daisysp13TapeSaturator4InitEv
+ 288              		.syntax unified
+ 289              		.thumb
+ 290              		.thumb_func
+ 291              		.fpu fpv5-d16
+ 293              	_ZN7daisysp13TapeSaturator4InitEv:
+ 294              	.LVL22:
+ 295              	.LFB3030:
+   9:../Epiphyte/tapesaturator.cpp ****         SetDrive(.5f);
+ 296              		.loc 1 9 5 is_stmt 1 view -0
+ 297              		.cfi_startproc
+ 298              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 20
+
+
+ 299              		@ frame_needed = 0, uses_anonymous_args = 0
+ 300              		@ link register save eliminated.
+  10:../Epiphyte/tapesaturator.cpp ****     }
+ 301              		.loc 1 10 9 view .LVU78
+  10:../Epiphyte/tapesaturator.cpp ****     }
+ 302              		.loc 1 10 17 is_stmt 0 view .LVU79
+ 303 0000 B6EE000A 		vmov.f32	s0, #5.0e-1
+ 304 0004 FFF7FEBF 		b	_ZN7daisysp13TapeSaturator8SetDriveEf
+ 305              	.LVL23:
+ 306              		.cfi_endproc
+ 307              	.LFE3030:
+ 309              		.text
+ 310              	.Letext0:
+ 311              		.file 4 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 312              		.file 5 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 313              		.file 6 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 314              		.file 7 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 315              		.file 8 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 316              		.file 9 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major/
+ 317              		.file 10 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 318              		.file 11 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 319              		.file 12 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 320              		.file 13 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 321              		.file 14 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 322              		.file 15 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 323              		.file 16 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 324              		.file 17 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 325              		.file 18 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 326              		.file 19 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 327              		.file 20 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 328              		.file 21 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 329              		.file 22 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 330              		.file 23 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 331              		.file 24 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 332              		.file 25 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 333              		.file 26 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 334              		.file 27 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 335              		.file 28 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 336              		.file 29 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 337              		.file 30 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 338              		.file 31 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 339              		.file 32 "/usr/local/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-major
+ 340              		.file 33 "../Epiphyte/tapesaturator.h"
+ 341              		.file 34 "<built-in>"
+ARM GAS  /var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s 			page 21
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 tapesaturator.cpp
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s:17     .text._ZN7daisysp13TapeSaturator7ProcessEf:0000000000000000 $t
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s:26     .text._ZN7daisysp13TapeSaturator7ProcessEf:0000000000000000 _ZN7daisysp13TapeSaturator7ProcessEf
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s:62     .text._ZN7daisysp13TapeSaturator8SetDriveEf:0000000000000000 $t
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s:70     .text._ZN7daisysp13TapeSaturator8SetDriveEf:0000000000000000 _ZN7daisysp13TapeSaturator8SetDriveEf
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s:279    .text._ZN7daisysp13TapeSaturator8SetDriveEf:00000000000000b4 $d
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s:285    .text._ZN7daisysp13TapeSaturator4InitEv:0000000000000000 $t
+/var/folders/qg/q4v9m50j32g19d5z_5604vrc0000gp/T//ccl4yXMo.s:293    .text._ZN7daisysp13TapeSaturator4InitEv:0000000000000000 _ZN7daisysp13TapeSaturator4InitEv
+
+UNDEFINED SYMBOLS
+tanhf
